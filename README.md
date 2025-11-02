@@ -2,6 +2,15 @@
 
 Welcome to your comprehensive journey from Elixir beginner to expert! This guide is specifically tailored for DevOps, SRE, and Platform engineers who want to leverage Elixir's powerful concurrency, fault-tolerance, and distributed systems capabilities.
 
+## 🚀 Quick Start
+
+```bash
+# Run the automated setup script
+./setup.sh
+```
+
+The setup script will check prerequisites, install dependencies, and get you ready to start learning in minutes! See the [Getting Started](#-getting-started) section below for details.
+
 ## 🎯 Why Elixir for DevOps?
 
 Elixir, built on the battle-tested Erlang VM (BEAM), offers unique advantages for infrastructure and platform engineering:
@@ -153,33 +162,71 @@ Build a production-ready API gateway with advanced features.
 
 ## 🏁 Getting Started
 
-### Prerequisites
+### Quick Setup (Recommended)
 
-1. **Install Elixir**: Follow instructions at [https://elixir-lang.org/install.html](https://elixir-lang.org/install.html)
-   ```bash
-   # macOS
-   brew install elixir
-   
-   # Ubuntu/Debian
-   sudo apt-get install elixir
-   ```
+The easiest way to get started is to run the automated setup script:
 
-2. **Install Livebook** (for interactive notebooks):
-   ```bash
-   mix escript.install hex livebook
-   
-   # Or use the desktop app
-   # Download from: https://livebook.dev
-   ```
+```bash
+# Clone or navigate to the repository
+cd /path/to/learn-elixir
 
-3. **Verify Installation**:
-   ```bash
-   elixir --version
-   mix --version
-   iex --version
-   ```
+# Run the setup script
+./setup.sh
+```
+
+**The setup script will:**
+- ✅ Check for Elixir and Erlang installation
+- ✅ Verify version requirements (Elixir ≥1.14, Erlang ≥24)
+- ✅ Update Hex package manager and Rebar
+- ✅ Offer to install Livebook for interactive notebooks
+- ✅ Install all project dependencies
+- ✅ Compile and test the Health Check Aggregator project
+- ✅ Provide helpful next steps and quick commands
+
+If you encounter any issues, the script will provide specific installation instructions for your operating system.
+
+### Manual Setup (Alternative)
+
+If you prefer to set up manually or if the script doesn't work for your system:
+
+#### 1. Install Elixir and Erlang
+
+Follow instructions at [https://elixir-lang.org/install.html](https://elixir-lang.org/install.html)
+
+```bash
+# macOS
+brew install elixir
+
+# Ubuntu/Debian
+sudo apt-get update
+sudo apt-get install elixir
+
+# Verify installation
+elixir --version  # Should be 1.14 or higher
+```
+
+#### 2. Install Livebook (Optional but Recommended)
+
+For interactive notebooks:
+
+```bash
+mix escript.install hex livebook
+
+# Or download the desktop app from: https://livebook.dev
+```
+
+#### 3. Install Project Dependencies
+
+```bash
+cd projects/health_check_aggregator
+mix deps.get
+mix compile
+mix test
+```
 
 ### Recommended Learning Path
+
+**After running `./setup.sh`, follow this path:**
 
 1. **Start with Documentation** (Phase 1)
    - Read docs sequentially from beginner to expert
@@ -195,6 +242,22 @@ Build a production-ready API gateway with advanced features.
    - Read the project README and requirements
    - Complete exercises and ensure all tests pass
    - Move to the next project
+
+### Verify Your Setup
+
+After running the setup script, test your installation:
+
+```bash
+# Test Interactive Elixir
+iex
+# Type: IO.puts("Hello, Elixir!")
+# Press Ctrl+C twice to exit
+
+# Test the Health Check Aggregator
+cd projects/health_check_aggregator
+iex -S mix
+# In iex: HealthCheckAggregator.add_service("google", "https://www.google.com", 30000)
+```
 
 ### Study Tips
 
@@ -246,5 +309,9 @@ Found an error or have suggestions? Contributions are welcome! This is your lear
 
 ---
 
-**Ready to begin?** Start with [Introduction to Elixir](docs/01-beginner/01-introduction.md)!
+**Ready to begin?** 
+
+1. Run `./setup.sh` to set up your environment
+2. Start with [Introduction to Elixir](docs/01-beginner/01-introduction.md)
+3. Join the [Elixir community](https://elixirforum.com) for support!
 
